@@ -18,7 +18,7 @@ from openai import OpenAI
 
 DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY")
 if not DASHSCOPE_API_KEY:
-    raise RuntimeError("先在终端里 export DASHSCOPE_API_KEY=sk-key")
+    raise RuntimeError("记得在终端里 export DASHSCOPE_API_KEY=sk-key先！！")
 
 # DashScope SDK alibabaclound singapore
 dashscope.base_http_api_url = "https://dashscope-intl.aliyuncs.com/api/v1"
@@ -717,7 +717,7 @@ async def voice_interaction(audio: UploadFile = File(...)):
     return JSONResponse({"audio_url": audio_url})
 
 
-# 查看时延日志
+# check latency
 
 @app.get("/logs")
 async def get_logs(limit: int = 50):
